@@ -80,4 +80,30 @@ public class OrderTest {
 
         Assertions.assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
     }
+
+    @Test
+    void shouldTestOrderWrongNameSelenide() {
+        open("http://localhost:9999");
+        SelenideElement form = $(".form");
+
+        form.$("span[data-test-id = 'name'] input").setValue("Пётр Андреевич");
+        form.$("span[data-test-id = 'phone'] input").setValue("+71234567890");
+        form.$("span[class = 'checkbox__box']").click();
+        form.$("button[type = 'button']").click();
+
+        $("span[class = 'input__sub']").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+    }
+
+    @Test
+    void shouldTestOrderWrongPhoneSelenide() {
+        open("http://localhost:9999");
+        SelenideElement form = $(".form");
+
+        form.$("span[data-test-id = 'name'] input").setValue("Петр Андреевич");
+        form.$("span[data-test-id = 'phone'] input").setValue("+7123456789012122123123123123");
+        form.$("span[class = 'checkbox__box']").click();
+        form.$("button[type = 'button']").click();
+
+        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+    }
 }
