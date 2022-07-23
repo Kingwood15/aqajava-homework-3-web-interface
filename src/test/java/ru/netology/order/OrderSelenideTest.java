@@ -129,7 +129,6 @@ public class OrderSelenideTest {
 
     @Test
     void shouldTestOrderWrongPhoneFromText() {
-        //open("http://localhost:9999");
         SelenideElement form = $(".form");
 
         form.$("[data-test-id = 'name'] input").setValue("Иван Сергеевич");
@@ -165,7 +164,6 @@ public class OrderSelenideTest {
 
     @Test
     void shouldTestOrderWrongNotClickCheckbox() {
-        //open("http://localhost:9999");
         SelenideElement form = $(".form");
 
         form.$("[data-test-id = 'name'] input").setValue("Иван Петрович");
