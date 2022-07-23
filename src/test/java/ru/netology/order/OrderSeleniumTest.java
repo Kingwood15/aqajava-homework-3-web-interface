@@ -17,8 +17,6 @@ public class OrderSeleniumTest {
     @BeforeAll
     static void setUpAll() {
         WebDriverManager.chromedriver().setup();
-        //второй рабочий вариант:
-        //System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
     }
 
     @BeforeEach
@@ -47,6 +45,7 @@ public class OrderSeleniumTest {
         driver.findElement(By.className("button")).click();
         String text = driver.findElement(By.className("paragraph")).getText();
 
-        Assertions.assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
+        Assertions.assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее" +
+                " время.", text.trim());
     }
 }

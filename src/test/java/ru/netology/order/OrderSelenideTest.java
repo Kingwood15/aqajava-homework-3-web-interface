@@ -21,8 +21,6 @@ public class OrderSelenideTest {
     @BeforeAll
     static void setUpAll() {
         WebDriverManager.chromedriver().setup();
-        //второй рабочий вариант:
-        //System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
     }
 
     @BeforeEach
@@ -50,7 +48,8 @@ public class OrderSelenideTest {
         form.$("span[class = 'checkbox__box']").click();
         form.$("button[type = 'button']").click();
 
-        $("p[data-test-id = 'order-success']").shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
+        $("p[data-test-id = 'order-success']").shouldHave(exactText("Ваша заявка успешно отправлена! Наш" +
+                " менеджер свяжется с вами в ближайшее время."));
     }
 
     @Test
@@ -63,7 +62,8 @@ public class OrderSelenideTest {
         form.$("span[class = 'checkbox__box']").click();
         form.$("button[type = 'button']").click();
 
-        $("span[class = 'input__sub']").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("span[class = 'input__sub']").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы" +
+                " только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -76,7 +76,8 @@ public class OrderSelenideTest {
         form.$("span[class = 'checkbox__box']").click();
         form.$("button[type = 'button']").click();
 
-        $("span[class = 'input__sub']").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("span[class = 'input__sub']").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы" +
+                " только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -89,7 +90,8 @@ public class OrderSelenideTest {
         form.$("span[class = 'checkbox__box']").click();
         form.$("button[type = 'button']").click();
 
-        $("span[class = 'input__sub']").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("span[class = 'input__sub']").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы" +
+                " только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -124,7 +126,8 @@ public class OrderSelenideTest {
         form.$("span[class = 'checkbox__box']").click();
         form.$("button[type = 'button']").click();
 
-        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("Телефон указан" +
+                " неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
     @Test
@@ -137,7 +140,8 @@ public class OrderSelenideTest {
         form.$("span[class = 'checkbox__box']").click();
         form.$("button[type = 'button']").click();
 
-        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("Телефон указан" +
+                " неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
     @Test
@@ -150,7 +154,8 @@ public class OrderSelenideTest {
         form.$("span[class = 'checkbox__box']").click();
         form.$("button[type = 'button']").click();
 
-        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("Телефон указан" +
+                " неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
     @Test
@@ -163,7 +168,8 @@ public class OrderSelenideTest {
         form.$("span[class = 'checkbox__box']").click();
         form.$("button[type = 'button']").click();
 
-        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("Поле обязательно для заполнения"));
+        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("Поле обязательно" +
+                " для заполнения"));
     }
 
     @Test
@@ -175,6 +181,8 @@ public class OrderSelenideTest {
         form.$("span[data-test-id = 'phone'] input").setValue("+71234567890");
         form.$("button[type = 'button']").click();
 
-        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("На указанный номер моб. тел. будет отправлен смс-код для подтверждения заявки на карту. Проверьте, что номер ваш и введен корректно."));
+        $("span[data-test-id = 'phone'] span[class = 'input__sub']").shouldHave(exactText("На указанный" +
+                " номер моб. тел. будет отправлен смс-код для подтверждения заявки на карту. Проверьте, что номер" +
+                " ваш и введен корректно."));
     }
 }
