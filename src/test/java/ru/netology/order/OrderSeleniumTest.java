@@ -103,14 +103,6 @@ public class OrderSeleniumTest {
     }
 
     @Test
-    void shouldTestOrderWrongNameDescriptionNotPassport() {
-        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван");
-        String text = driver.findElement(By.cssSelector("[data-test-id='name'] .input__sub")).getText();
-
-        Assertions.assertEquals("Укажите точно как в паспорте", text.trim());
-    }
-
-    @Test
     void shouldTestOrderWrongPhone() {
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Петр Андреевич");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+712345678901212212312");
@@ -154,15 +146,6 @@ public class OrderSeleniumTest {
         String text = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub")).getText();
 
         Assertions.assertEquals("Поле обязательно для заполнения", text.trim());
-    }
-
-    @Test
-    void shouldTestOrderPhoneDescriptionSendSms() {
-        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("номер телефона");
-        String text = driver.findElement(By.cssSelector("[data-test-id='phone'] .input__sub")).getText();
-
-        Assertions.assertEquals("На указанный номер моб. тел. будет отправлен смс-код для подтверждения" +
-                " заявки на карту. Проверьте, что номер ваш и введен корректно.", text.trim());
     }
 
     @Test

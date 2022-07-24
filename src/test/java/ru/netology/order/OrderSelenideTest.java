@@ -93,15 +93,6 @@ public class OrderSelenideTest {
     }
 
     @Test
-    void shouldTestOrderWrongNameDescriptionNotPassport() {
-        SelenideElement form = $(".form");
-
-        form.$("[data-test-id = 'name'] input").setValue("Иван");
-
-        $("[data-test-id='name'] .input__sub").shouldHave(exactText("Укажите точно как в паспорте"));
-    }
-
-    @Test
     void shouldTestOrderWrongPhone() {
         SelenideElement form = $(".form");
 
@@ -153,16 +144,6 @@ public class OrderSelenideTest {
     }
 
     @Test
-    void shouldTestOrderPhoneDescriptionSendSms() {
-        SelenideElement form = $(".form");
-
-        form.$("[data-test-id = 'phone'] input").setValue("+79012345678");
-
-        $("[data-test-id='phone'] .input__sub").shouldHave(exactText("На указанный номер моб. тел. будет" +
-                " отправлен смс-код для подтверждения заявки на карту. Проверьте, что номер ваш и введен корректно."));
-    }
-
-    @Test
     void shouldTestOrderWrongNotClickCheckbox() {
         SelenideElement form = $(".form");
 
@@ -170,6 +151,8 @@ public class OrderSelenideTest {
         form.$("[data-test-id = 'phone'] input").setValue("+71234567890");
         form.$("[type = 'button']").click();
 
-        $("[data-test-id='agreement'].input_invalid");
+        $("[data-test-id='agreement'].input_invalid").shouldHave(exactText("Я соглашаюсь с условиями" +
+                " обработки и использования моих персональных данных и разрешаю сделать запрос в бюро" +
+                " кредитных историй"));
     }
 }
